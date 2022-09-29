@@ -8,8 +8,14 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~>2.0"
     }
+    azapi = {
+      source  = "azure/azapi"
+      version = "~>1.0"
+    }
   }
   backend "azurerm" {
+    container_name   = "tfstate"
+    key              = "aib"
     use_azuread_auth = true
   }
 }
